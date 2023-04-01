@@ -5,7 +5,7 @@ function Lookbook() {
   const { id } = useParams();
   console.log(id)
   return (
-    <div>Lookbook: {id}</div>
+    <div className='flex justify-center items-center h-screen'>Lookbook: {id}</div>
   )
 }
 
