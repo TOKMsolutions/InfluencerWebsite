@@ -2,7 +2,9 @@ import React from 'react'
 
 function HeroImageContainer() {
   return (
-    <div>HeroImageContainer</div>
+    <div className="w-full h-full bg-black">
+      HeroImageContainer
+    </div>
   )
 }
 
