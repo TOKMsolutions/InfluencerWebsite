@@ -11,12 +11,12 @@ import { FaBars } from 'react-icons/fa'
 
 const CustomLink = ({ to, children,active, ...props}) => {
   return(
-    <li className="mx-6">
+    <li className="mx-6 font-hv">
       <NavLink 
         to={to} 
-        className={`text-black transition-all duration-100 hover:text-black
+        className={`text-black transition-all duration-100
         ${active ? 
-          'p-[10px] mr-[-10px] bg-gradient-to-r from-[#e4eeff] to-[#f1e8ec] rounded-full border-[1.5px] border-black'
+          'px-4 py-1 mr-[-10px] bg-gradient-to-r from-[#e4eeff] to-[#f1e8ec] rounded-full border-[1.5px] border-black hover:text-black'
           :
           'hover:text-[#797979]'
         }`}
@@ -32,7 +32,7 @@ const CustomLink = ({ to, children,active, ...props}) => {
 function NavBar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="bg-gradient-to-r from-[#e1e1d3] to-[#f4fdf1] fixed top-0 left-0 h-16 w-screen border-b-2 border-black text-black">
+    <header className="bg-gradient-to-r from-[#e1e1d3] to-[#f4fdf1] fixed top-0 left-0 h-16 w-screen border-b-[1.5px] border-[#bdbdbd] text-black z-10">
       {/*Desktop NavBar*/}
       <nav className="hidden md:flex flex-col justify-center h-16 w-full text-black">
         <div className="mx-5 flex flex-row justify-between items-center ">
@@ -77,18 +77,18 @@ function NavBar() {
         </div>
         <div className={`mobile-nav-links bg-gradient-to-r from-[#e1e1d3] to-[#f4fdf1] mt-2 w-screen ${open ? 'h-0':'h-screen'} transition-all duration-200 ease-in-out `}>
             <div className={`flex flex-col w-screen ${open ? 'hidden':'flex'} text-7xl trasnition-all duration-500 ease-in-out`}>
-              <ul className={`flex flex-col  w-screen `}>
+              <ul className={`flex flex-col w-screen space-y-4 `}>
                 <CustomLink to="/"  >
-                  HOME
+                  Home
                 </CustomLink>
                 <CustomLink to="#shop">
-                  SHOP
+                  Shop
                 </CustomLink>
                 <CustomLink to="#lookbook">
-                  LOOKBOOK
+                  Lookbook
                 </CustomLink>
                 <CustomLink to="#contact">
-                  CONTACT
+                  Contact
                 </CustomLink>
               </ul>
               </div>
