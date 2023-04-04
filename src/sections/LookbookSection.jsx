@@ -3,11 +3,9 @@ import React from "react";
 function LookbookSection() {
     return (
         <>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="w-full h-screen">
+
+            </div>
         </>
     );
 }

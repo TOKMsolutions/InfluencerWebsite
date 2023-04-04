@@ -61,7 +61,7 @@ function NavBar() {
       </nav>
       
       {/*Mobile NavBar*/}
-      <nav className=" h-screen w-full text-black md:hidden flex flex-col static">
+      <nav className=" h-fit w-full text-black md:hidden flex flex-col static">
         <div className="flex flex-row justify-between items-center mx-5">
           <div className="mobile_logo">
             <h1 className="font-bold">PP</h1>

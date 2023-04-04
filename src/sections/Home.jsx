@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import HeroImageContainer from "../components/HeroImageContainer";
+import LookbookSection from './LookbookSection';
 
 const winLocation = window.location.pathname;
 
@@ -35,6 +36,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <LookbookSection />
         </>
     );
 }
