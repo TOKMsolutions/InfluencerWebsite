@@ -21,7 +21,9 @@ function HeroImageContainer() {
         <div className="w-full h-full relative flex items-center overflow-clip">
             <div className="w-1/12 h-full flex items-center">
                 <div className={`h-full md:h-4/5 w-full ${idx === 0 && 'invisible'}`}>
-                    <img src={`/lookbook/0/${idx-1}.jpg`} alt="" className="w-full h-full object-cover" />
+                    {idx > 0 &&
+                        <img src={`/lookbook/0/${idx-1}.jpg`} alt="" className="w-full h-full object-cover" />
+                    }
                 </div>
             </div>
             <div className="w-1/12 h-full flex justify-center items-center">
@@ -49,7 +51,9 @@ function HeroImageContainer() {
             </div>
             <div className="w-1/12 h-full flex items-center">
                 <div className={`h-full md:h-4/5 w-full ${idx === maxImgs && 'invisible'}`}>
-                    <img src={`/lookbook/0/${idx+1}.jpg`} alt="" className="w-full h-full object-cover" />
+                    {idx <= maxImgs &&
+                        <img src={`/lookbook/0/${idx+1}.jpg`} alt="" className="w-full h-full object-cover" />
+                    }
                 </div>
             </div>
         </div>
