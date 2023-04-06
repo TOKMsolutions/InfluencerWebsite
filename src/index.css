@@ -6,11 +6,8 @@
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -88,6 +85,42 @@ button:focus-visible {
     min-height: 100vh;
     height: fit-content;
   }
+
+  html {
+    @apply bg-[#e1e1d3];
+    @apply bg-gradient-to-r from-[#e1e1d3] to-[#f4fdf1];
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::marker, ::-webkit-details-marker {
+  display: none !important;
+}
+
+summary {
+  display: flex;
+}
+
+button {
+  cursor: pointer !important;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 0;
 }
 
 /* Containers */
