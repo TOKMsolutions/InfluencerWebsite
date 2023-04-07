@@ -11,8 +11,8 @@ function Footer() {
     return (
         <footer className="w-full h-[32rem] md:h-64 bg-transparent">
             <div className="w-full h-full md:h-3/4 border-y-[1.5px] border-[#bdbdbd] md:px-24 md:pt-10 grid grid-rows-3 md:grid-rows-none md:grid-cols-3 grid-flow-col md:grid-flow-row gap-x-16">
-              <div className="h-full flex flex-col gap-y-2 justify-center md:justify-start md:border-none border-b-[1.5px] border-[#bdbdbd] px-12">
-                  <h1 className="text-sm md:text-lg text-black leading-tight">Keep up to date with my latest shoots, releases, and more!</h1>
+              <div className="h-full flex flex-col gap-y-2 justify-center md:justify-start md:border-none border-b-[1.5px] border-[#bdbdbd] px-12 md:px-0">
+                  <h1 className="text-sm md:text-md lg:text-lg text-black leading-tight">Keep up to date with my latest shoots, releases, and more!</h1>
                   <div className="w-full md:w-full h-[2.5rem] md:h-10 rounded-xl border-[1px] border-black">
                     <input
                       type="email"
@@ -23,7 +23,7 @@ function Footer() {
                     />
                   </div>
               </div>
-              <div className="h-full flex items-center md:items-start md:justify-center border-b-[1.5px] border-[#bdbdbd] md:border-none px-12">
+              <div className="h-full flex items-center md:items-start md:justify-center border-b-[1.5px] border-[#bdbdbd] md:border-none px-12 md:px-0">
                 <ul>
                   <li>
                     <Link to={""} className="text-black font-normal">Home</Link>
@@ -39,7 +39,7 @@ function Footer() {
                   </li>
                 </ul>
               </div>
-              <div className="h-full flex flex-col justify-center md:justify-start md:items-start gap-y-4 px-12">
+              <div className="h-full flex flex-col justify-center md:justify-start md:items-start gap-y-4 px-12 md:px-0">
                   <ul>
                     <li>
                       <Link to={""} className="text-black font-normal">Mentoring</Link>
