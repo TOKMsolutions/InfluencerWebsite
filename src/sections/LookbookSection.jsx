@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 function LookbookSection() {
     const [expanded, setExpanded] = useState(false);
@@ -21,11 +21,11 @@ function LookbookSection() {
       setExpanded(!expanded);
     };
 
-    const scrollContainer = document.querySelector('.lookbook-container');
+    const scrollContainerRef = useRef(null);
     const [scrollAmount, setScrollAmount] = useState(0);
 
     const handleScroll = () => {
-        setScrollAmount((scrollContainer?.scrollLeft / (scrollContainer?.scrollWidth - scrollContainer?.clientWidth)* 100).toFixed(0));
+        setScrollAmount((scrollContainerRef.current?.scrollLeft / (scrollContainerRef.current?.scrollWidth - scrollContainerRef.current?.clientWidth)* 100).toFixed(0));
     };
 
     const [startX, setStartX] = useState(0);
@@ -39,7 +39,7 @@ function LookbookSection() {
     const handleMouseUp = ({ clientX }) => {
         setGrabbing(false);
         const diff = clientX - startX;
-        scrollContainer.scrollLeft -= diff;
+        scrollContainerRef.current.scrollLeft -= diff;
     };
 
     return (
@@ -59,10 +59,11 @@ function LookbookSection() {
                     X
                 </button>
                 <div
-                    className={`w-fit min-h-fit flex overflow-auto lookbook-container no-scroll scroll-smooth ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? 'gap-x-16' : 'w-full h-full items-center'}`}
+                    className={`w-fit min-h-fit flex overflow-auto no-scroll scroll-smooth ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? 'gap-x-16' : 'w-full h-full items-center'}`}
                     onScroll={handleScroll}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
+                    ref={scrollContainerRef}
                 >
                     <div className={`bg-[#808080] relative ${expanded ? 'h-[45vw] aspect-[4/5]' : 'w-3/5 aspect-[4/5] lg:aspect-[3/2]'}`}>
                         <img src="" alt="" />
