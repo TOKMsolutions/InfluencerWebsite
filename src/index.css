@@ -123,6 +123,15 @@ a {
   outline: 0;
 }
 
+.no-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Containers */
 /* .container {
   margin-left: 5rem;
