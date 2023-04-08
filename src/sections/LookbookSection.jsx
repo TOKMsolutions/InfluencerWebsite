@@ -72,7 +72,7 @@ function LookbookSection() {
                     X
                 </button>
                 <div
-                    className={`w-fit min-h-fit flex no-scroll scroll-smooth overflow-auto ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? 'gap-x-16 max-md:h-[100vw] md:h-initial' : 'w-full h-full items-center'}`}
+                    className={`w-fit min-h-fit flex items-center no-scroll scroll-smooth overflow-auto ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? 'gap-x-16 max-md:h-[100vw] md:h-initial' : 'w-full h-full items-center'}`}
                     onScroll={handleScroll}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
@@ -80,7 +80,7 @@ function LookbookSection() {
                     onMouseLeave={handleMouseLeave}
                     ref={scrollContainerRef}
                 >
-                    <div className={`bg-[#808080] relative transition-[width] shrink-0 ${expanded ? 'max-md:h-[100vw] md:w-[36vw] aspect-[4/5]' : 'w-[95%] md:w-3/5 aspect-[4/5] lg:aspect-[3/2]'}`}>
+                    <div className={`bg-[#808080] relative transition-[width,height] items-center duration-[2s] ease-in-out shrink-0 ${expanded ? 'max-md:h-[100vw] md:w-[36vw] aspect-[4/5]' : 'w-[95%] md:w-3/5 aspect-[4/5] lg:aspect-[3/2]'}`}>
                         <img src="" alt="" />
                         <button
                             className={`w-12 aspect-square rounded-full ${idx === maxImgs ? disabledBtn : enabledBtn} absolute right-8 my-auto bottom-0 top-0 ${expanded ? 'hidden' : 'block'}`}
