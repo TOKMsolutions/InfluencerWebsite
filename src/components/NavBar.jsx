@@ -63,21 +63,21 @@ function NavBar() {
       {/*Mobile NavBar*/}
       <nav className=" h-fit w-full text-black md:hidden flex flex-col static">
         <div className="flex flex-row justify-between items-center mx-5">
-          <div className="mobile_logo">
+          <div className="mobile_logo pl-8">
             <h1 className="font-bold">PP</h1>
           </div>
           <div onClick={()=>setOpen(!open)} className="menu_bar">
             {
               open ? 
-              <FaBars className="text-3xl cursor-pointer"/> 
-              : 
               <h1 className="text-5xl cursor-pointer">x</h1>
+              :
+              <FaBars className="text-3xl cursor-pointer"/> 
             }
           </div>
         </div>
-        <div className={`mobile-nav-links bg-gradient-to-r from-[#e1e1d3] to-[#f4fdf1] mt-2 w-screen ${open ? 'h-0':'h-screen'} transition-all duration-200 ease-in-out `}>
-            <div className={`flex flex-col w-screen ${open ? 'hidden':'flex'} text-7xl trasnition-all duration-500 ease-in-out`}>
-              <ul className={`flex flex-col w-screen space-y-4 `}>
+        <div className={`mobile-nav-links bg-gradient-to-r from-[#e1e1d3] to-[#f4fdf1] mt-[0.45rem] w-screen ${open ? 'h-screen':'h-0'} transition-all duration-200 ease-in-out `}>
+            <div className={`flex flex-col w-screen ${open ? 'flex':'hidden'} text-7xl trasnition-all duration-500 ease-in-out`}>
+              <ul className={`flex flex-col w-screen space-y-4 pt-4`}>
                 <CustomLink to="/"  >
                   Home
                 </CustomLink>
@@ -96,7 +96,6 @@ function NavBar() {
       </nav>
     </header>
   )
-  // open = false;
 }
 
 export default NavBar
