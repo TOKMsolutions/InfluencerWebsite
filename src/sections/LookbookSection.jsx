@@ -27,11 +27,15 @@ function LookbookSection() {
 
     const handleClickToScrollRight = () => {
         // scroll 20% of total scrollbar width
-        scrollContainerRef.current.scrollLeft += (scrollContainerRef.current?.scrollWidth * 0.2);
+        const distanceToScroll = (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.offsetWidth) * 0.2;
+        setDistanceScrolled(distanceToScroll);
+        scrollLoop();
     };
 
     const handleClickToScrollLeft = () => {
-        scrollContainerRef.current.scrollLeft -= (scrollContainerRef.current?.scrollWidth * 0.2);
+        const distanceToScroll = (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.offsetWidth) * 0.2;
+        setDistanceScrolled(-1*distanceToScroll);
+        scrollLoop();
     };
 
     const handleMouseDown = ({ clientX, pageX }) => {
@@ -43,7 +47,7 @@ function LookbookSection() {
         if(grabbing) {
             const diff = startX - clientX;
             setDistanceScrolled(diff);
-            const distanceToScroll = scrollContainerRef.current.scrollLeft + diff * 0.075;
+            const distanceToScroll = scrollContainerRef.current.scrollLeft + diff * 0.15;
             scrollContainerRef.current.scrollTo({ 'left': distanceToScroll, behaviour: 'smooth' })
         }
     };
@@ -59,19 +63,19 @@ function LookbookSection() {
     const handleMouseUp = () => {
         setGrabbing(false);
         scrollLoop();
-    }
+    };
 
     const scrollLoop = () => {
         let velX = Math.abs(distanceScrolled);
-        while(velX > 0.5) {
-            velX *= 0.5;
-            const distanceToScroll = scrollContainerRef.current.scrollLeft + (Math.sign(distanceScrolled) * velX*300);
+        while(velX > 0.6) {
+            velX *= 0.85;
+            const distanceToScroll = scrollContainerRef.current.scrollLeft + (Math.sign(distanceScrolled) * velX*400);
 
-            scrollContainerRef.current.scrollTo({ left: distanceToScroll, behavior: 'smooth' })
+            scrollContainerRef.current.scrollTo({ left: distanceToScroll, behavior: 'smooth' });
         }
 
         setScrollPercentage(scrollContainerRef.current.scrollLeft / (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.offsetWidth) * 100);
-    }
+    };
 
     useEffect(() => {
         if (expanded)
@@ -107,7 +111,10 @@ function LookbookSection() {
 
     return (
         <>
-            <div className={`w-full h-[80vh] md:h-screen flex items-center p-4 md:p-16 relative scroll-m-24`} ref={sectionContainer}>
+            <div
+                className={`w-full h-[80vh] md:h-screen flex items-center p-4 md:p-16 relative scroll-m-24`}
+                ref={sectionContainer}
+            >
                 {/* Scrollbar Progress */}
                 {
                     expanded &&
@@ -125,7 +132,6 @@ function LookbookSection() {
                 {/* Lookbook Divs Container */}
                 <div
                     className={`w-fit min-h-fit flex items-center gap-x-[5%] no-scroll ${expanded ? 'overflow-auto' : 'overflow-clip'} transition[gap,width,height] duration-[2s] ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? ' max-md:h-[100vw] md:h-initial' : 'w-full h-full items-center'}`}
-                    // onScroll={handleScroll}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
                     onMouseMove={handleMouseMove}
@@ -136,11 +142,11 @@ function LookbookSection() {
                     {/* Click Edge To Scroll */}
                     <div
                         className={`w-32 h-4/5 absolute left-0 my-auto top-0 bottom-0 cursor-pointer max-md:hidden ${expanded ? 'block' : 'hidden'}`}
-                        // onClick={handleClickToScrollLeft}
+                        onClick={handleClickToScrollLeft}
                     ></div>
                     <div
                         className={`w-32 h-4/5 absolute right-0 my-auto top-0 bottom-0 cursor-pointer max-md:hidden ${expanded ? 'block' : 'hidden'}`}
-                        // onClick={handleClickToScrollRight}
+                        onClick={handleClickToScrollRight}
                     ></div>
                     {/* First Lookbook Div */}
                     <div className={`bg-[#808080] relative items-center transition-[width,height,aspect-ratio] duration-[2s] ease-in-out shrink-0 ${expanded ? 'w-[64vw] md:w-[36vw] aspect-[4/5] lg:w-[30vw]' : 'w-[70%] md:w-3/5 aspect-[4/5] lg:aspect-[3/2]'}`}>
