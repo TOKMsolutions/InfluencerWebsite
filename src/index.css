@@ -132,6 +132,10 @@ a {
   display: none !important;
 }
 
+.no-select * {
+  user-select: none;
+}
+
 /* Containers */
 /* .container {
   margin-left: 5rem;

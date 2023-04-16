@@ -131,7 +131,7 @@ function LookbookSection() {
                 </div>
                 {/* Lookbook Divs Container */}
                 <div
-                    className={`w-fit min-h-fit flex items-center gap-x-[5%] no-scroll ${expanded ? 'overflow-auto' : 'overflow-clip'} transition[gap,width,height] duration-[2s] ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? ' max-md:h-[100vw] md:h-initial' : 'w-full h-full items-center'}`}
+                    className={`w-fit min-h-fit h-4/5 flex items-center gap-x-[5%] no-scroll no-select ${expanded ? 'overflow-auto' : 'overflow-clip'} transition[gap,width,height] duration-[2s] ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${expanded ? ' max-md:h-[100vw] md:h-initial' : 'w-full h-full items-center'}`}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
                     onMouseMove={handleMouseMove}
@@ -149,8 +149,16 @@ function LookbookSection() {
                         onClick={handleClickToScrollRight}
                     ></div>
                     {/* First Lookbook Div */}
-                    <div className={`bg-[#808080] relative items-center transition-[width,height,aspect-ratio] duration-[2s] ease-in-out shrink-0 ${expanded ? 'w-[64vw] md:w-[36vw] aspect-[4/5] lg:w-[30vw]' : 'w-[70%] md:w-3/5 aspect-[4/5] lg:aspect-[3/2]'}`}>
-                        <img src="" alt="" />
+                    <div className={`flex flex-col relative items-center transition-[width,height,aspect-ratio] duration-[2s] ease-in-out shrink-0 ${expanded ? 'w-[64vw] md:w-[36vw] aspect-[4/5] lg:w-[30vw]' : 'w-[70%] md:w-3/5 aspect-[4/5] lg:aspect-[3/2]'}`}>
+                        <div className={`w-full ${expanded ? 'h-[85%]' : 'h-full'}`}>
+                            <img src="/lookbook/0/0.jpg" alt="" className="w-full h-full object-cover object-center" draggable={false} />
+                        </div>
+                        <div className={`w-full pt-2 text-black transition-[height] duration-[1s] ${expanded ? 'h-[15%]' : 'h-0' }`}>
+                            <h1 className="text-2xl font-bold">Lookbook Title</h1>
+                            <span className="text-sm truncate-3-lines">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus minus doloribus veritatis tempora obcaecati aperiam dicta dolores ab nobis hic. Ipsa voluptatum itaque culpa quisquam cumque perspiciatis quasi a sit.
+                            </span>
+                        </div>
                         <button
                             className={`w-12 aspect-square rounded-full ${idx === maxImgs ? disabledBtn : enabledBtn} absolute right-8 my-auto bottom-0 top-0 ${expanded ? 'hidden' : 'block'}`}
                             disabled={idx === maxImgs}
@@ -159,30 +167,67 @@ function LookbookSection() {
                             {">"}
                         </button>
                     </div>
-                    {/* <div className={`w-[5%] h-full flex-shrink-0 ${expanded ? 'hidden' : 'block'}`}>
-
-                    </div> */}
                     {/* 2nd Lookbook Div */}
                     <div
-                        className={`bg-[#808080] aspect-[4/5] transition-[height,width] ease-in-out duration-[2s] flex-shrink-0 md:h-[45vw] ${expanded ? 'max-md:w-[64vw] lg:h-[37.5vw]' : 'max-md:w-[36vw]'}`}
+                        className={`aspect-[4/5] transition-[height,width] ease-in-out duration-[2s] flex-shrink-0 md:h-[45vw] ${expanded ? 'max-md:w-[64vw] lg:h-[37.5vw]' : 'max-md:w-[36vw]'}`}
                         onClick={() => {if(!expanded) setExpanded(true)}}
                     >
+                        <div className={`w-full ${expanded ? 'h-[85%]' : 'h-full'}`}>
+                            <img src="/lookbook/0/1.jpg" alt="" className="w-full h-full object-cover object-center" draggable={false} />
+                        </div>
+                        <div className={`w-full pt-2 text-black transition-[height] duration-[1s] ${expanded ? 'h-[15%]' : 'h-0 hidden' }`}>
+                            <h1 className="text-2xl font-bold">Lookbook Title</h1>
+                            <span className="text-sm truncate-3-lines">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus minus doloribus veritatis tempora obcaecati aperiam dicta dolores ab nobis hic. Ipsa voluptatum itaque culpa quisquam cumque perspiciatis quasi a sit.
+                            </span>
+                        </div>
                     </div>
                     {/* Rest Of Lookbook Divs */}
                     {
-                        
                         <>
-                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0 bg-[#808080]`}>
-
+                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0 flex flex-col`}>
+                                <div className={`w-full h-[85%]`}>
+                                    <img src="/lookbook/0/2.jpg" alt="" className="w-full h-full object-cover object-center" draggable={false} />
+                                </div>
+                                <div className={`w-full h-[15%] pt-2 text-black transition-[height] duration-[1s]`}>
+                                    <h1 className="text-2xl font-bold">Lookbook Title</h1>
+                                    <span className="text-sm truncate-3-lines">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus minus doloribus veritatis tempora obcaecati aperiam dicta dolores ab nobis hic. Ipsa voluptatum itaque culpa quisquam cumque perspiciatis quasi a sit.
+                                    </span>
+                                </div>
                             </div>
-                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0 bg-[#808080]`}>
-
+                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0`}>
+                                <div className={`w-full h-[85%]`}>
+                                    <img src="/lookbook/0/3.jpg" alt="" className="w-full h-full object-cover object-center" draggable={false} />
+                                </div>
+                                <div className={`w-full h-[15%] pt-2 text-black transition-[height] duration-[1s]`}>
+                                    <h1 className="text-2xl font-bold">Lookbook Title</h1>
+                                    <span className="text-sm truncate-3-lines">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus minus doloribus veritatis tempora obcaecati aperiam dicta dolores ab nobis hic. Ipsa voluptatum itaque culpa quisquam cumque perspiciatis quasi a sit.
+                                    </span>
+                                </div>
                             </div>
-                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0 bg-[#808080]`}>
-
+                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0`}>
+                                <div className={`w-full h-[85%]`}>
+                                    <img src="/lookbook/0/4.jpg" alt="" className="w-full h-full object-cover object-center" draggable={false} />
+                                </div>
+                                <div className={`w-full h-[15%] pt-2 text-black transition-[height] duration-[1s]`}>
+                                    <h1 className="text-2xl font-bold">Lookbook Title</h1>
+                                    <span className="text-sm truncate-3-lines">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus minus doloribus veritatis tempora obcaecati aperiam dicta dolores ab nobis hic. Ipsa voluptatum itaque culpa quisquam cumque perspiciatis quasi a sit.
+                                    </span>
+                                </div>
                             </div>
-                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0 bg-[#808080]`}>
-
+                            <div className={`max-md:h-[80vw] md:w-[36vw] lg:w-[30vw] aspect-[4/5] shrink-0`}>
+                                <div className={`w-full h-[85%]`}>
+                                    <img src="/lookbook/0/5.jpg" alt="" className="w-full h-full object-cover object-center" draggable={false} />
+                                </div>
+                                <div className={`w-full h-[15%] pt-2 text-black transition-[height] duration-[1s]`}>
+                                    <h1 className="text-2xl font-bold">Lookbook Title</h1>
+                                    <span className="text-sm truncate-3-lines">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus minus doloribus veritatis tempora obcaecati aperiam dicta dolores ab nobis hic. Ipsa voluptatum itaque culpa quisquam cumque perspiciatis quasi a sit.
+                                    </span>
+                                </div>
                             </div>
                         </>
                     }

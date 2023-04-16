@@ -15,8 +15,15 @@ module.exports = {
         'max-lg': {'max': '1023px'},
         'max-md': {'max': '767px'},
         'max-sm': {'max': '639px'},
+      },
+      truncate: {
+        lines: {
+            3: '3',
+            5: '5',
+            8: '8',
+        }
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-truncate-multiline')(),],
 }
